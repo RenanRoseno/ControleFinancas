@@ -22,7 +22,7 @@ class Balance extends Model
             'amount'       => $value,
             'total_before' => $totalBefore,
             'total_after'  => $this->amount,
-            'date'         => date('Ymd'),
+            'date'         => date('Ymd'), 
         ]);
 
 
