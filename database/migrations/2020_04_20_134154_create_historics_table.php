@@ -16,7 +16,7 @@ class CreateHistoricsTable extends Migration
         Schema::create('historics', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table-> foreign('user_id')->refereces('id')->on('users');
+            $table-> foreign('user_id')->references('id')->on('users');
             $table->enum('type', ['I', 'O', 'T']);
             $table->double('amount',10,2);
             $table->double('total_before', 10, 2);
