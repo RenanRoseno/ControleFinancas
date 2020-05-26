@@ -37,4 +37,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Historic::class);
     }
+    public function getUsuario($usuario){
+        return $this->where('name','LIKE',"%$usuario%")
+            ->orWhere('email',$usuario)
+            ->get()
+            ->first();
+    }
 }

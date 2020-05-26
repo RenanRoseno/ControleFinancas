@@ -8,6 +8,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     $this->post('winthdrawn', 'BalanceController@withdrawnStore')->name('withdrawn.store');
     $this->get('transfer', 'BalanceController@transfer')->name('balance.transfer');
     $this->post('transfer', 'BalanceController@transferStore')->name('transfer.store');
+    $this->post('transfer-confirm', 'BalanceController@transferSend')->name('transfer.send');
     $this->get('/', 'AdminController@index')->name('admin.home');
     $this->get('balance', 'BalanceController@index')->name('balance');
 });
