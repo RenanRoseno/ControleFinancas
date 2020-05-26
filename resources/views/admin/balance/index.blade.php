@@ -18,7 +18,9 @@
     <a class="btn btn-primary" href="{{ route('balance.deposit')}}"><i class="fas fa-plus"></i>&nbsp;Depositar </a>
     @if ($amount > 0)
       <a class="btn btn-danger" href="{{ route('balance.withdrawn')}}"> <i class="fas fa-minus"></i>&nbsp;Sacar</a>
-    @endif
+      <a class="btn btn-warning" href="{{ route('balance.transfer')}}"> <i class="fas fa-exchange-alt"></i>&nbsp;Transferir</a>
+      @endif
+    
   </div>
   <div class="box-body">
     @include('admin.includes.alerts')

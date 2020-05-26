@@ -48,4 +48,12 @@ class BalanceController extends Controller
 
         return redirect()->back()->with('error', $response['message']);
     }
+
+    public function transfer(){
+        return view('admin.balance.transfer');
+    }
+
+    public function transferStore(Request $req){
+        dd($req->all());
+    }
 }
