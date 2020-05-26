@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', 'Saldo')
+@section('title', 'Sistema de Saldo')
+
 
 @section('content_header')
 <h1>Saldo</h1>
@@ -15,9 +16,12 @@
 <div class="box">
   <div class="box-header">
     <a class="btn btn-primary" href="{{ route('balance.deposit')}}"><i class="fas fa-plus"></i>&nbsp;Depositar </a>
-    <a class="btn btn-danger" href=""> <i class="fas fa-minus"></i>&nbsp;Sacar</a>
+    @if ($amount > 0)
+      <a class="btn btn-danger" href="{{ route('balance.withdrawn')}}"> <i class="fas fa-minus"></i>&nbsp;Sacar</a>
+    @endif
   </div>
   <div class="box-body">
+    @include('admin.includes.alerts')
     <!-- small box -->
     <div class="small-box bg-green">
       <div class="inner">
