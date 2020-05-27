@@ -136,25 +136,31 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Home',
+            'text'        => '&nbsp;Home',
             'url'         => 'admin',
             'icon'        => 'fa fa-home',
         ],
         [
-            'text' => 'Financeiro',
+            'text' => '&nbsp;Financeiro',
             'icon' => 'fas fa-money-bill',
             'submenu' => [[
-                'text' => 'Saldo',
+                'text' => '&nbsp;Saldo',
                 'url' => 'admin/balance',
                 'icon' => 'fas fa-piggy-bank'
             ],
             [
-                'text' => 'Histórico',
+                'text' => '&nbsp;Histórico',
                 'url' => 'admin/historic',
                 'icon' => 'fas fa-history'
             ]
             ]
-        ]
+            ],
+            [
+                'text' => '&nbsp;Meu perfil',
+                'icon' => 'fas fa-user',
+                'url' => 'admin/profile',
+            ],
+            
         /*['header' => 'account_settings'],
         [
             'text' => 'profile',

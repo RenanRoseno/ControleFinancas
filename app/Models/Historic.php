@@ -47,6 +47,7 @@ class Historic extends Model
             if (isset($data['type']))
                 $query->where('type', $data['type']);
         })
+        ->where('user_id',auth()->user()->id)
         ->paginate($totalPage);
     }
 }

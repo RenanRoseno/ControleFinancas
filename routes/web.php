@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Routing\Route;
 
 $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function () {
     $this->get('deposit', 'BalanceController@deposit')->name('balance.deposit');
@@ -13,10 +12,13 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     $this->get('/', 'AdminController@index')->name('admin.home');
     $this->get('balance', 'BalanceController@index')->name('balance');
   
+
     $this->get('historic','BalanceController@historic')->name('admin.historic');
     $this->any('historic-search','BalanceController@searchHistoric')->name('historic.search');
 
+    $this->get('profile','UserController@profile')->name('admin.profile');
 });
+
 
 Route::get('/', 'Site\SiteController@index')->name('home');
 
