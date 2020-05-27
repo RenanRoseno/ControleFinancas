@@ -19,6 +19,7 @@
         <div class="box-header">
         <h4><strong>Recebedor:</strong> {{$usuario->name}}</h4>    
         <h3>Valor da Transferência</h3>
+        <p>Seu saldo atual: R$ {{ number_format($balance->amount, 2, ',','.')}}</p>
         </div>
         @include('admin.includes.alerts')
         <form method="post" action="{{route('transfer.send')}}">
