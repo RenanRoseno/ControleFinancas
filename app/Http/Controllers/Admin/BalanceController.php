@@ -103,11 +103,11 @@ class BalanceController extends Controller
     }
 
     public function searchHistoric(Request $req, Historic $historic){
-        $dados = $req->all(); 
+        $dados = $req->except('_token'); 
         $historics = $historic->search($dados, $this->totalPage);
 
         $types = $historic->type();
 
-        return view('admin.balance.historic', compact('historics','types'));
+        return view('admin.balance.historic', compact('historics','types','dados'));
     }
 }

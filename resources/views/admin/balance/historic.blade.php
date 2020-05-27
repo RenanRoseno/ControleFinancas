@@ -66,5 +66,12 @@
         </table>
     </div>
 </div>
-<center>{!! $historics->links() !!}</center>
+<center>
+    @if(isset($dados))
+    {!! $historics->appends($dados)->links() !!}    
+    @else
+    {!! $historics->links() !!}
+    @endif
+
+</center>
 @stop
