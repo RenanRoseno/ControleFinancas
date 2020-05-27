@@ -11,7 +11,10 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     $this->post('transfer-confirm', 'BalanceController@transferSend')->name('transfer.send');
     $this->get('/', 'AdminController@index')->name('admin.home');
     $this->get('balance', 'BalanceController@index')->name('balance');
+  
     $this->get('historic','BalanceController@historic')->name('admin.historic');
+    $this->post('historic','BalanceController@searchHistoric')->name('historic.search');
+
 });
 
 

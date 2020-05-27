@@ -6,10 +6,13 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MoneyValidationForm;
 use App\Models\Balance;
+use App\Models\Historic;
 use App\User;
 
 class BalanceController extends Controller
 {
+    private $totalPage = 5;
+
     public function index()
     {
 
@@ -87,10 +90,19 @@ class BalanceController extends Controller
         return redirect()->back()->with('error', $response['message']);
     }
 
-    public function historic()
+    public function historic(Historic $historic)
     {
-        $historics = auth()->user()->historics()->with(['userS'])->get();
+        $historics = auth()->user()
+                           ->historics()
+                           ->with(['userS'])
+                           ->paginate($this->totalPage);
+        
+            $types = $historic->type();
 
-        return view('admin.balance.historic', compact('historics'));
+        return view('admin.balance.historic', compact('historics','types'));
+    }
+
+    public function searchHistoric(Request $req){
+        dd($req->all());
     }
 }

@@ -16,7 +16,21 @@
 @section('content')
 <div class="box">
     <div class="box-header">
+        <form action="{{route('historic.search')}}" method="POST" class="form form-inline">
+            {!! csrf_field() !!}
+            <input type="text" name="id" class="form-control" placeholder="ID">
+            <input type="date" name="date" class="form-control" placeholder="ID">
 
+            <select name="type" class="form-control">
+                <option value="">TIPO</option>
+
+                @foreach ($types as $key=>$type)
+                    <option value="{{$key}}">{{$type}}</option>
+                @endforeach
+            </select>
+
+            <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
+        </form>
     </div>
     <div class="box-body">
         <table class="table table-striped table-bordered table-hover">
@@ -33,13 +47,13 @@
                 @forelse($historics as $historic)
                 <tr>
                     <td>{{ $historic->id}}</td>
-                    <td>{{number_format($historic->amount, 2, ',','.')}}</td>
+                    <td>R$ {{number_format($historic->amount, 2, ',','.')}}</td>
                     <td>{{$historic->type($historic->type)}}</td>
                     <td>
                         @if($historic->user_id_transaction)
-                            {{$historic->userS->name}}
-                        @else 
-                            -
+                        {{$historic->userS->name}}
+                        @else
+                        -
                         @endif
                     </td>
 
@@ -52,4 +66,5 @@
         </table>
     </div>
 </div>
+<center>{!! $historics->links() !!}</center>
 @stop
