@@ -75,7 +75,7 @@ class BalanceController extends Controller
     {
         $usuario = $user->find($req->usuario_id);
 
-        if(!$usuario){
+        if (!$usuario) {
             return redirect()->route('balance.transfer')->with('success', 'Recebedor não encontrado!');
         }
         $balance = auth()->user()->balance()->firstOrCreate([]);
@@ -85,5 +85,12 @@ class BalanceController extends Controller
             return redirect()->route('balance')->with('success', $response['message']);
 
         return redirect()->back()->with('error', $response['message']);
+    }
+
+    public function historic()
+    {
+        $historics = auth()->user()->historics()->get();
+
+        return view('admin.balance.historic', compact('historics'));
     }
 }

@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Contas</b>',
+    'logo' => '<b>Sistema de Saldo</b>',
 
     'logo_mini' => '<b>R$</b>',
 

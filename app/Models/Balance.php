@@ -131,13 +131,13 @@ class Balance extends Model
             DB::commit();
             return [
                 'success' => true,
-                'message' => 'Sucesso ao Depositar'
+                'message' => 'Sucesso ao Transferir'
             ];
         } else {
             DB::rollback();
             return [
                 'success' => true,
-                'message' => 'Falha ao depositar'
+                'message' => 'Falha ao Transferir'
             ];
         }
     }
