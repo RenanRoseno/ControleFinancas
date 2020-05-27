@@ -17,6 +17,7 @@ $this->group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     $this->any('historic-search','BalanceController@searchHistoric')->name('historic.search');
 
     $this->get('profile','UserController@profile')->name('admin.profile');
+    $this->post('profile-update','UserController@profileUpdate')->name('profile.update');
 });
 
 
