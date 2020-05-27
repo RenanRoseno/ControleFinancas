@@ -25,7 +25,7 @@
                     <th>#</th>
                     <th>VALOR</th>
                     <th>TIPO</th>
-                    <th>RECEBEDOR</th>
+                    <th>REMETENTE</th>
                     <th>DATA</th>
                 </tr>
             </thead>
@@ -34,9 +34,17 @@
                 <tr>
                     <td>{{ $historic->id}}</td>
                     <td>{{number_format($historic->amount, 2, ',','.')}}</td>
-                    <td>{{$historic->type}}</td>
-                    <td>{{$historic->user_id_transaction}}</td>
-                    <td>{{$historic->date}}</td>
+                    <td>{{$historic->type($historic->type)}}</td>
+                    <td>
+                        @if($historic->user_id_transaction)
+                            {{$historic->userS->name}}
+                        @else 
+                            -
+                        @endif
+                    </td>
+
+
+                    <td>{{date("d/m/Y",strtotime($historic->date))}}</td>
                 </tr>
                 @empty
                 @endforelse
