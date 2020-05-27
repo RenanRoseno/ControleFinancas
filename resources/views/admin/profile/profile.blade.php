@@ -10,8 +10,13 @@
 <div class="box">
     <div class="box-body">
     @include('admin.includes.alerts')
-        <form action="{{route('profile.update')}}" method="POST">
+        <form action="{{route('profile.update')}}" method="POST" enctype="multipart/form-data">
             {!! csrf_field() !!}
+            @if(auth()->user()->image != null)
+            <div class="form-group">
+                <img src="{{url('storage/users/'.auth()->user()->image)}}" class="img-thumbnail" style="max-width:200px;max-height:200px;">
+            </div>
+            @endif
             <div class="form-group">
                 <label class="form-label">
                     <h4>Nome</h4>
